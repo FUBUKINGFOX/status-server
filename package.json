@@ -1,0 +1,25 @@
+{
+  "name": "status-server",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "run": "cd ./src && node main.js",
+    "build": "webpack --config webpack.config.js",
+    "test": "cd ./test && node test.js"
+  },
+  "author": "Jaycheng",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "ini": "^5.0.0",
+    "systeminformation": "^5.27.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.27.7",
+    "@babel/preset-env": "^7.27.2",
+    "babel-loader": "^10.0.0",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1"
+  }
+}

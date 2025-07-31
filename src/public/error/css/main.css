@@ -1,0 +1,26 @@
+:root {
+  --en-font-family: Lato, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Verdana, Tahoma, sans-serif
+}
+
+#main{
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5)),url("/error/assets/404.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#error-text{
+    padding: 20px;
+    margin: 0;
+    font-family: var(--en-font-family);
+    font-size: 5rem;
+    color: rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+    user-select: none;
+    width: fit-content;
+}
+
+#error-text:hover{
+    color: rgba(255, 255, 255, 0.2);
+}

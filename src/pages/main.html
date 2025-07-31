@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伺服器負載</title>
+    <link rel="icon" href="/main/assets/icon.png">
+    <link rel="stylesheet" href="/global/css/normalize.css">
+    <link rel="stylesheet" href="/main/css/main.css">
+</head>
+<body>
+    <main id="main-bg">
+        <header id="title">
+            <a href="#">
+                <img id="title-img" src="/main/assets/icon.png">
+            </a>
+            <p id="title-text">伺服器負載</p>
+        </header>
+        <div id="main">
+            <div>
+                <div id="server-info-a">
+                    <div id="server-info">
+                        <p class="inner-title">伺服器公告: </p>
+                        <p id="server-info-text"></p>
+                    </div>
+                </div>
+
+                <div id="server-status-summary-a">
+                    <div id="server-status-summary-title">
+                        <p id="server-status-summary-title-text">伺服器摘要</p>
+                    </div>
+
+                    <div id="server-status-summary-content">
+                        <div id="server-status-summary-info">
+                            <div class="summary-info-card">
+                                <div class="summary-info-title">
+                                    <p class="summary-info-title-text">系統</p>
+                                </div>
+                                <p class="summary-info-text">作業系統: <span id="os-name">---</span></p>
+                                <p class="summary-info-text">作業系統架構: <span id="os-type">---</span></p>
+                            </div>
+
+                            <div class="summary-info-card">
+                                <div class="summary-info-title">
+                                    <p class="summary-info-title-text">CPU 規格</p>
+                                </div>
+                                <p class="summary-info-text">CPU 型號: <span id="cpu-name">---</span></p>
+                                <p class="summary-info-text">CPU 執行緒: <span id="cpu-counts">---</span></p>
+                            </div>
+
+                            <div class="summary-info-card">
+                                <div class="summary-info-title">
+                                    <p class="summary-info-title-text">RAM 規格</p>
+                                </div>
+                                <p class="summary-info-text">已安裝 RAM: <span id="ram-counts">---</span>GB</p>
+                            </div>
+
+                            <div class="summary-info-card">
+                                <div class="summary-info-title">
+                                    <p class="summary-info-title-text">儲存空間</p>
+                                </div>
+                                <p class="summary-info-text">已安裝 磁碟空間: <span id="disk-total">---</span>GB</p>
+                            </div>
+
+                        </div>
+                        <div id="server-status-summary">
+                            <div class="summary-card-group">
+                                <div id="summary-card-LT" class="summary-card">
+                                    <div class="summary-card-title">
+                                        <p class="summary-card-title-text">過去一小時平均 CPU 使用率</p>
+                                    </div>
+                                    <p id="summary-card-text-cpu"><strong><span id="cpu-summary">---</span> %</strong></p>
+                                    <div class="summary-chart-contener">
+                                        <canvas id="cpu-summary-chart"></canvas>
+                                    </div>
+                                </div>
+                                <div id="summary-card-RT" class="summary-card">
+                                    <div class="summary-card-title">
+                                        <p class="summary-card-title-text">過去一小時平均 RAM 使用率</p>
+                                    </div>
+                                    <p id="summary-card-text-ram"><strong><span id="ram-summary">---</span> GB</strong></p>
+                                    <div class="summary-chart-contener">
+                                        <canvas id="ram-summary-chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="summary-card-group">
+                                <div id="summary-card-LB" class="summary-card">
+                                    <div id="summary-card-LB-T">
+                                        <div class="summary-card-title">
+                                            <p class="summary-card-title-text">過去一小時平均 上傳流量</p>
+                                        </div>
+                                        <p id="net-summary-upload-text"><strong><span id="net-summary-upload">---</span></strong> MB/sec</p>
+                                    </div>
+                                    <div id="summary-card-LB-B">
+                                        <div class="summary-card-title">
+                                            <p class="summary-card-title-text">過去一小時平均 下載流量</p>
+                                        </div>
+                                        <p id="net-summary-download-text"><strong><span id="net-summary-download">---</span></strong> MB/sec</p>
+                                    </div>
+                                </div>
+                                <div class="summary-card">
+                                    <div class="summary-card-title">
+                                        <p class="summary-card-title-text">儲存空間使用率</p>
+                                    </div>
+                                    <p id="summary-card-text-disk"><strong><span id="disk-summary">---</span> %</strong></p>
+                                    <div class="summary-chart-contener">
+                                        <canvas id="disk-summary-chart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="server-status-a">
+                    <div id="server-status-info">
+                        <div>
+                            <div id="server-time-a">
+                                <p id="server-time-title">伺服器時區: <span id="time-zone">---</span></p>
+                                <p id="server-time">---</p>
+                            </div>
+                        </div> 
+                        <footer id="copy-right">
+                            <p class="copy-right-text">(c) 2025 CORN Studio.</p>
+                            <p class="copy-right-text">著作權所有，並保留一切權利。</p>
+                        </footer>
+                        
+                    </div>
+                    <div id="server-status">
+                        <div class="chart-group">
+                            <p class="chart-title">CPU 使用率</p>
+                            <div class="chart-contener">
+                                <canvas id="CPU-Chart"></canvas>
+                            </div>
+                            
+                        </div>
+                        <div class="chart-group">
+                            <p class="chart-title">RAM 使用率</p>
+                            <div class="chart-contener">
+                                <canvas id="RAM-Chart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-group">
+                            <p class="chart-title">網路流量</p>
+                            <div class="chart-contener">
+                                <canvas id="NET-Chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/global/js/chart.js"></script>
+    <script src="/global/js/typed.js"></script>
+    <script src="/main/js/index.js"></script>
+</body>
+</html>
