@@ -28,7 +28,7 @@ function updateTime(res){
 
 function updateINFO(res){
     res = res.replaceAll("\n","<br/>")
-    new Typed('#server-info-text', {
+    new Typed('#server-info-text-content', {
         strings: [res],
         typeSpeed: 30
     });
